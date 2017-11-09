@@ -10,7 +10,7 @@ import org.usfirst.frc.team1983.robot.settings.Constants;
 import org.usfirst.frc.team1983.robot.subsystems.Drivebase;
 import edu.wpi.first.wpilibj.Compressor;
 
-import org.usfirst.frc.team1983.robot.commands.RunTankDrive;
+import org.usfirst.frc.team1983.robot.commands.drivebase.RunTankDrive;
 
 public class Robot extends IterativeRobot {
     public static OI m_oi;
@@ -22,6 +22,8 @@ public class Robot extends IterativeRobot {
         m_oi = new OI();
         m_drivebase = new Drivebase();
         m_compressor = new Compressor(1);
+
+        m_drivebase.getGyro().initGyro();
     }
 
     @Override
@@ -45,7 +47,9 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
 
-        System.out.println(m_oi.getAxis(Constants.OIJoystick.Left, Joystick.AxisType.kY.value));
+        System.out.println("left: " + m_oi.getAxis(Constants.OIJoystick.Left, Joystick.AxisType.kY.value));
+        System.out.println("right: " + m_oi.getAxis(Constants.OIJoystick.Right, Joystick.AxisType.kY.value));
+        System.out.println("gyro: " + m_drivebase.getGyro().getAngle());
 
         m_oi.update();
     }

@@ -1,4 +1,4 @@
-package org.usfirst.frc.team1983.robot.commands;
+package org.usfirst.frc.team1983.robot.commands.drivebase;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
