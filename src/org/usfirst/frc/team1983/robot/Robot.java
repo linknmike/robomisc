@@ -1,7 +1,6 @@
 package org.usfirst.frc.team1983.robot;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
 import org.usfirst.frc.team1983.robot.services.OI;
@@ -19,11 +18,13 @@ public class Robot extends IterativeRobot {
 
     @Override
     public void robotInit() {
-        m_oi = new OI();
+
         m_drivebase = new Drivebase();
         m_compressor = new Compressor(1);
 
         m_drivebase.getGyro().initGyro();
+
+        m_oi = new OI(Constants.OIInputType.DoubleJoy); //Must come last so that requires() in commands know the object they're referencing
     }
 
     @Override
@@ -46,10 +47,7 @@ public class Robot extends IterativeRobot {
     @Override
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-
-        System.out.println("left: " + m_oi.getAxis(Constants.OIJoystick.Left, Joystick.AxisType.kY.value));
-        System.out.println("right: " + m_oi.getAxis(Constants.OIJoystick.Right, Joystick.AxisType.kY.value));
-        System.out.println("gyro: " + m_drivebase.getGyro().getAngle());
+        //System.out.println("gyro: " + m_drivebase.getGyro().getAngle());
 
         m_oi.update();
     }
