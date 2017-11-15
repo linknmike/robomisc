@@ -5,7 +5,7 @@ import org.usfirst.frc.team1983.robot.Robot;
 
 public class RunCompressor extends Command {
     public RunCompressor() {
-        requires(Robot.m_drivebase);
+
     }
 
     protected void initialize() {

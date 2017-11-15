@@ -12,7 +12,7 @@ import java.util.Arrays;
 
 public class Drivebase extends Subsystem {
     private MotorGroup m_leftDrive, m_rightDrive;
-    private Encoder m_leftEncoder, m_rightEncoder;
+    public Encoder m_leftEncoder, m_rightEncoder;
     private DoubleSolenoid m_drop1, m_drop2;
     private DoubleSolenoid m_shifter;
 
@@ -37,6 +37,9 @@ public class Drivebase extends Subsystem {
 
         m_shifter = new DoubleSolenoid(RobotMap.PCM_ID, RobotMap.DRIVEBASE_SHIFTER_FORWARD_PORT,
                                                         RobotMap.DRIVEBASE_SHIFTER_REVERSE_PORT);
+
+        m_leftEncoder = new Encoder(0, 1);
+        m_rightEncoder = new Encoder(2, 3, true);
     }
 
     public void initDefaultCommand() {
@@ -57,7 +60,7 @@ public class Drivebase extends Subsystem {
     }
 
     public void switchDroppedState() {
-        shiftToState(m_drop1.get() == DoubleSolenoid.Value.kForward);
+        setDroppedState(m_drop1.get() == DoubleSolenoid.Value.kForward);
     }
 
     public void setLeftThrottle(double throttle) {

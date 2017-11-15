@@ -1,7 +1,7 @@
 package org.usfirst.frc.team1983.robot.settings;
 
 public class Constants {
-    public static double JOYSTICK_DEADZONE = 0.05;
+    public static double JOYSTICK_DEADZONE = 0.15;
 
     public static class OIInputType {
         public static final int DoubleJoy = 0;

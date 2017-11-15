@@ -32,8 +32,6 @@ public class RunTankDrive extends Command {
             case Constants.OIInputType.Wheel:
                 break;
         }
-
-        Robot.m_drivebase.setThrottle(leftThrottle, rightThrottle);
     }
 
     protected boolean isFinished() {
