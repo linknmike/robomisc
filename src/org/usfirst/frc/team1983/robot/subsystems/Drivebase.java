@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Encoder;
 
+import org.usfirst.frc.team1983.robot.Robot;
 import org.usfirst.frc.team1983.robot.commands.RunCompressor;
 import org.usfirst.frc.team1983.robot.settings.RobotMap;
 
@@ -38,8 +39,11 @@ public class Drivebase extends Subsystem {
         m_shifter = new DoubleSolenoid(RobotMap.PCM_ID, RobotMap.DRIVEBASE_SHIFTER_FORWARD_PORT,
                                                         RobotMap.DRIVEBASE_SHIFTER_REVERSE_PORT);
 
-        m_leftEncoder = new Encoder(0, 1);
-        m_rightEncoder = new Encoder(2, 3, true);
+        m_leftEncoder = new Encoder(RobotMap.DRIVEBASE_LEFT_ENCODER_PORT1,
+                                    RobotMap.DRIVEBASE_LEFT_ENCODER_PORT2);
+
+        m_rightEncoder = new Encoder(RobotMap.DRIVEBASE_RIGHT_ENCODER_PORT1,
+                                     RobotMap.DRIVEBASE_RIGHT_ENCODER_PORT2, true);
     }
 
     public void initDefaultCommand() {

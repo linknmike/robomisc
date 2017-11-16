@@ -18,4 +18,10 @@ public class RobotMap {
 
     public static int DRIVEBASE_SHIFTER_FORWARD_PORT = 6;
     public static int DRIVEBASE_SHIFTER_REVERSE_PORT = 7;
+
+    public static int DRIVEBASE_LEFT_ENCODER_PORT1 = 0;
+    public static int DRIVEBASE_LEFT_ENCODER_PORT2 = 1;
+
+    public static int DRIVEBASE_RIGHT_ENCODER_PORT1 = 2;
+    public static int DRIVEBASE_RIGHT_ENCODER_PORT2 = 3;
 }

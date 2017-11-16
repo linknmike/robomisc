@@ -1,6 +1,6 @@
 package org.usfirst.frc.team1983.robot.subsystems;
 
-import edu.wpi.first.wpilibj.CANSpeedController;
+import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.Talon;
 import org.usfirst.frc.team1983.robot.settings.Constants;
 
